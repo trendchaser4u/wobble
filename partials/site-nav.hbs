@@ -1,29 +1,70 @@
-<nav class="site-nav">
+{{!-- <nav class="site-nav">
     <div class="site-nav-left">
         {{^is "home"}}
-            {{#if @blog.logo}}
-                <a class="site-nav-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>
-            {{else}}
-                <a class="site-nav-logo" href="{{@blog.url}}">{{@blog.title}}</a>
-            {{/if}}
+        {{#if @blog.logo}}
+        <a class="site-nav-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>
+        {{else}}
+        <a class="site-nav-logo" href="{{@blog.url}}">{{@blog.title}}</a>
+        {{/if}}
         {{/is}}
         {{#if @blog.navigation}}
-            {{navigation}}
+        {{navigation}}
         {{/if}}
     </div>
     <div class="site-nav-right">
         <div class="social-links">
             {{#if @blog.facebook}}
-                <a class="social-link social-link-fb" href="{{facebook_url @blog.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
+            <a class="social-link social-link-fb" href="{{facebook_url @blog.facebook}}" title="Facebook" target="_blank"
+                rel="noopener">{{> "icons/facebook"}}</a>
             {{/if}}
             {{#if @blog.twitter}}
-                <a class="social-link social-link-tw" href="{{twitter_url @blog.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
+            <a class="social-link social-link-tw" href="{{twitter_url @blog.twitter}}" title="Twitter" target="_blank"
+                rel="noopener">{{> "icons/twitter"}}</a>
             {{/if}}
         </div>
         {{#if @labs.subscribers}}
-            <a class="subscribe-button" href="#subscribe">Subscribe</a>
+        <a class="subscribe-button" href="#subscribe">Subscribe</a>
         {{else}}
-            <a class="rss-button" href="https://feedly.com/i/subscription/feed/{{@blog.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
+        <a class="rss-button" href="https://feedly.com/i/subscription/feed/{{@blog.url}}/rss/" title="RSS" target="_blank"
+            rel="noopener">{{> "icons/rss"}}</a>
         {{/if}}
+    </div>
+</nav> --}}
+
+<nav class="navbar navbar-expand-lg center-brand static-nav home4">
+    <div class="container">
+        <a href="#" class="center-brand"><img src="img/logo.png" alt="" /></a>
+        <button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#xenav">
+            <i class="fas fa-bars fa-2x"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="xenav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item drop_menu"> <a class="nav-link" href="index.html">Home <i class="fas fa-caret-down"></i></a>
+                    <ul>
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="index-2.html">Home 2</a></li>
+                        <li><a href="index-3.html">Home 3</a></li>
+                        <li><a href="index-4.html">Home 4</a></li>
+                        <li><a href="index-5.html">Home 5</a></li>
+                        <li><a href="index-6.html">Home 6</a></li>
+                        <li><a href="index-7.html">Home 7</a></li>
+                        <li><a href="index-8.html">Home 8</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item drop_menu"> <a class="nav-link" href="single.html">Blog Single <i class="fas fa-caret-down"></i></a>
+                    <ul>
+                        <li><a href="single.html">Single Full</a></li>
+                        <li><a href="single-left.html">Single Left</a></li>
+                        <li><a href="single-right.html">Single Right</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>

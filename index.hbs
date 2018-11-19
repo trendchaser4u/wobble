@@ -1,36 +1,121 @@
-{{!< default}}
-{{!-- The tag above means: insert everything in this file
-into the {body} of the default.hbs template --}}
-
-{{!-- The big featured header, it uses blog cover image as a BG if available --}}
-<header class="site-header outer {{#if @blog.cover_image}}" style="background-image: url({{@blog.cover_image}}){{else}}no-cover{{/if}}">
+{{!< default}} {{> "site-nav"}} {{> "site-header"}}
+    {{!-- <main id="site-main" class="site-main outer">
     <div class="inner">
-        <div class="site-header-content">
-            <h1 class="site-title">
-                {{#if @blog.logo}}
-                    <img class="site-logo" src="{{@blog.logo}}" alt="{{@blog.title}}" />
-                {{else}}
-                    {{@blog.title}}
-                {{/if}}
-            </h1>
-            <h2 class="site-description">{{@blog.description}}</h2>
-        </div>
-        {{> "site-nav"}}
-    </div>
-</header>
-
-{{!-- The main content area --}}
-<main id="site-main" class="site-main outer">
-    <div class="inner">
-
         <div class="post-feed">
             {{#foreach posts}}
-
-                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                {{> "post-card"}}
-
-            {{/foreach}}
-        </div>
-
+    {{> "post-card"}} {{/foreach}} </div> <form>
+    <input id="search-field" />
+    <input type="submit" value="search">
+    </form>
+    <section id="results"></section>
+    {{pagination}}
+    <div>-----------Featured--------</div>
+    {{#get "posts" filter="featured:true" as |featured|}}
+    {{#foreach featured}}
+    <li><a href="{{url}}">{{title}}</a></li>
+    {{/foreach}}
+    {{/get}}
     </div>
-</main>
+    </main> --}}
+
+    <section class="blog-post-all">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        {{#foreach posts}}
+                        <div class="col-md-6">
+                            {{> "post-card"}}
+                        </div>
+                        {{/foreach}}
+                        <div class="w-100"></div>
+                        {{pagination}}
+                        {{!-- {{#get "tags" limit="10" as |tags| }}
+                        {{#foreach tags}}
+                        {{name}}
+                        {{/foreach}}
+                        {{/get}} --}}
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                    <div class="author-widget-sidebar">
+                        <h3>About Me</h3>
+                        <div class="author-profile">
+                            <img src="img/home4/author.jpg" alt="" />
+                            <h2>smarty deshai</h2>
+                            <p>We're so surrounded by so much this marke ting and just being told regular basis.</p>
+                        </div>
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="recent-post-sidebar">
+                        <h3>Recent Posts</h3>
+                        <ul class="list-unstyled">
+                            <li class="media">
+                                <img src="img/home4/rpost1.jpg" alt="">
+                                <div class="media-body">
+                                    <a href="#">Design is funny word,Sam people think design.</a>
+                                    <p>Aug 15,2018</p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img src="img/home4/rpost2.jpg" alt="">
+                                <div class="media-body">
+                                    <a href="#">Design is funny word,Sam people think design.</a>
+                                    <p>Aug 15,2018</p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img src="img/home4/rpost3.jpg" alt="">
+                                <div class="media-body">
+                                    <a href="#">Design is funny word,Sam people think design.</a>
+                                    <p>Aug 15,2018</p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <img src="img/home4/rpost4.jpg" alt="">
+                                <div class="media-body">
+                                    <a href="#">Design is funny word,Sam people think design.</a>
+                                    <p>Aug 15,2018</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="categories-sidebar">
+                        <h3>Categories</h3>
+                        <ul>
+                            <li><a href="#">Design & Development</a></li>
+                            <li><a href="#">Mobile Styling</a></li>
+                            <li><a href="#">Life Style</a></li>
+                            <li><a href="#">Personal Life Style</a></li>
+                            <li><a href="#">Video blogs</a></li>
+                            <li><a href="#">Designer Life</a></li>
+                            <li><a href="#">Freelancer Life</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="tags-sidebar">
+                        <h3>Tags</h3>
+                        <ul>
+                            <li><a href="#">Design</a></li>
+                            <li><a href="#">UI & UX</a></li>
+                            <li><a href="#">Inspiration</a></li>
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">Lifestyle</a></li>
+                            <li><a href="#">Cowork</a></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
